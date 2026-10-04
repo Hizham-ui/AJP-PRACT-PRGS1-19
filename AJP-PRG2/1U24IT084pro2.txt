@@ -1,0 +1,91 @@
+class ExceptionA extends Exception {
+public ExceptionA(String message) {
+super(message);
+}
+}
+
+class ExceptionB extends ExceptionA {
+public ExceptionB(String message) {
+super(message);
+}
+}
+
+public class Practical2 {
+public static void main(String[] args) {
+
+try {
+throw new ExceptionA(&quot;This is ExceptionA&quot;);
+} catch (Exception e) {
+System.out.println(&quot;Caught: &quot; + e.getMessage());
+}
+
+try {
+throw new ExceptionB(&quot;This is ExceptionB&quot;);
+} catch (Exception e) {
+System.out.println(&quot;Caught: &quot; + e.getMessage());
+}
+
+try {
+throw new java.io.IOException(&quot;This is an
+IOException&quot;);
+} catch (Exception e) {
+System.out.println(&quot;Caught: &quot; + e.getMessage());
+}
+
+try {
+String nullString = null;
+System.out.println(nullString.length());
+} catch (Exception e) {
+
+System.out.println(&quot;Caught: &quot; + e.getMessage());
+}
+}
+}
+Output:
+Caught: This is ExceptionA
+Caught: This is ExceptionB
+Caught: This is an IOException
+Caught: Cannot invoke &quot;String.length()&quot; because &quot;&lt;local1&gt;&quot;
+is null
+
+3 import java.util.ArrayList;
+import java.util.Scanner;
+class Practical3
+{
+public static void main(String[]args)
+{
+Scanner scanner = new Scanner(System.in);
+
+System.out.println(&quot;Enter a line of text:&quot;);
+String inputLine = scanner.nextLine();
+
+String[] words = inputLine.split(&quot; &quot;);
+
+ArrayList&lt;String&gt; wordsStartingWithB = new
+ArrayList&lt;&gt;();
+for (String word : words)
+{
+
+if (word.toLowerCase().startsWith(&quot;b&quot;))
+{
+wordsStartingWithB.add(word);
+}
+}
+ArrayList&lt;String&gt; wordsEndingWithED = new
+ArrayList&lt;&gt;();
+for (String word : words)
+{
+if (word.toUpperCase().endsWith(&quot;ED&quot;))
+{
+wordsEndingWithED.add(word);
+}
+
+}
+
+System.out.println(&quot;words starting with &#39;b&#39; : &quot; +
+wordsStartingWithB);
+System.out.println(&quot;words ending with &#39;ED&#39; : &quot; +
+wordsEndingWithED);
+
+}
+}
