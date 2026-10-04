@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class TokenizeAndSort {
+
+    public static void main(String[] args) {
+
+        // Get input from the user
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a line of text:");
+        // String inputText ="this is unit2 Java program";
+        String inputText = scanner.nextLine();
+
+        // Split the text into words
+        String[] tokens = inputText.split("\\s+");
+
+        // Store words in TreeSet (automatically sorts and removes duplicates)
+        TreeSet<String> tokenSet = new TreeSet<>();
+
+        for (int i = 0; i < tokens.length; i++) {
+            tokenSet.add(tokens[i]);
+        }
+
+        System.out.println("Tokens in ascending sorted order:");
+
+        for (String token : tokenSet) {
+            System.out.println(token);
+        }
+
+        scanner.close();
+    }
+}
