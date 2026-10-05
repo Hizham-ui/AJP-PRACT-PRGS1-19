@@ -1,0 +1,12 @@
+
+System.out.println("Handling GET request...");
+
+response.setContentType("text/html");
+
+PrintWriter out = response.getWriter();
+
+out.println("<html><body>");
+
+out.println("<h2>Hello! This is the Servlet Lifecycle Demo.</h2>");
+
+out.println("</body></html>");
