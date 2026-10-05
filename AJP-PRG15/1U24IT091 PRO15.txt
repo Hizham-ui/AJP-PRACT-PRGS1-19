@@ -1,0 +1,20 @@
+Lifecycle1 
+
+System.out.println("Handling GET request...");
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+
+out.println("<html><body>");
+out.println("<h2>Hello! This is the Servlet1 - Lifecycle1 Demo.</h2>");
+out.println("</body></html>");
+
+
+Lifecycle2 
+
+System.out.println("Handling GET request...");
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+
+out.println("<html><body>");
+out.println("<h2>Hello! This is the Servlet2 - Lifecycle2 Demo.</h2>");
+out.println("</body></html>");
