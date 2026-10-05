@@ -1,0 +1,26 @@
+Servlet 1
+
+Click com.example – rightclick – new – servlet – initial
+In doget() method paste the coding:
+String action = request.getParameter("action");
+
+        if ("forward".equalsIgnoreCase(action)) {
+            // Forward to TargetServlet
+            RequestDispatcher dispatcher = request.getRequestDispatcher("target");
+            dispatcher.forward(request, response);
+        } else if ("redirect".equalsIgnoreCase(action)) {
+            // Redirect to TargetServlet
+            response.sendRedirect("target");
+        } else {
+            response.setContentType("text/html");
+            response.getWriter().println("<h2>This is Initial servlet</h2>");
+           
+        }
+
+Servlet 2
+
+Click com.example – rightclick – new – servlet – target
+In doget() method paste the coding:
+response.setContentType("text/html");
+         response.getWriter().println("<h1>Welcome to TargetServlet!</h1>");
+         response.getWriter().println("<p>This request was handled successfully.</p>");
