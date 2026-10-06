@@ -1,0 +1,41 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+class Practical4
+{
+public static void main(String[] args) {
+
+Scanner sc = new Scanner(System.in);
+
+System.out.println(&quot;Enter the month you were born (1 to
+12):&quot;);
+int month = sc.nextInt();
+
+System.out.println(&quot;Enter the day of the month you were
+born:&quot;);
+int day = sc.nextInt();
+
+System.out.println(&quot;Enter the year you were born (four
+digits):&quot;);
+int year = sc.nextInt();
+
+LocalDate birthDate = LocalDate.of(year, month, day);
+
+DateTimeFormatter formatter =
+DateTimeFormatter.ofPattern(&quot;MMMM dd, yyyy&quot;);
+System.out.println(&quot;Your birth date is &quot; +
+birthDate.format(formatter));
+
+LocalDate currentDate = LocalDate.now();
+System.out.println(&quot;Today&#39;s date is &quot; +
+currentDate.format(formatter));
+
+Period age = Period.between(birthDate, currentDate);
+System.out.println(&quot;Your age is: &quot; + age.getYears() + &quot;
+years.&quot;);
+
+sc.close();
+}
+}
