@@ -1,0 +1,56 @@
+
+import javax.print.*;
+import java.io.*;
+
+public class PrintWelcomeDirectly
+{
+    public static void main(String[] args)
+    {
+        // Text to print
+        String message = "Welcome";
+
+        // Convert the message to an input stream
+        InputStream input = new ByteArrayInputStream(message.getBytes());
+
+        // Set the document flavor
+        DocFlavor flavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+
+        // Create the document
+        Doc doc = new SimpleDoc(input, flavor, null);
+
+        // Locate the default print service
+        PrintService printer = PrintServiceLookup.lookupDefaultPrintService();
+
+        if (printer != null)
+        {
+            // Create a print job from the service
+            DocPrintJob printJob = printer.createPrintJob();
+
+            try
+            {
+                // Send the document to the printer
+                printJob.print(doc, null);
+            }
+            catch (PrintException e)
+            {
+                // Handle any print exceptions
+                e.printStackTrace();
+            }
+        }
+        else
+        {
+            // No printer found
+            System.err.println("No default printer found");
+        }
+
+        // Close the input stream
+        try
+        {
+            input.close();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+}
