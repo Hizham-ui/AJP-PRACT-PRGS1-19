@@ -1,0 +1,44 @@
+class ExceptionA extends Exception {
+    public ExceptionA(String message) {
+        super(message);
+    }
+}
+
+class ExceptionB extends ExceptionA {
+    public ExceptionB(String message) {
+        super(message);
+    }
+}
+
+class Practical2 {
+    public static void main(String[] args) {
+        try {
+            // Throw ExceptionA
+            throw new ExceptionA("This is ExceptionA");
+        } catch (Exception e) {
+            System.out.println("Caught: " + e.getMessage());
+
+            try {
+                // Throw ExceptionB
+                throw new ExceptionB("This is ExceptionB");
+            } catch (Exception ex) {
+                System.out.println("Caught: " + ex.getMessage());
+            }
+
+            try {
+                // Throw IOException
+                throw new java.io.IOException("This is an IOException");
+            } catch (Exception ex) {
+                System.out.println("Caught: " + ex.getMessage());
+            }
+
+            try {
+                // Throw NullPointerException
+                String nullString = null;
+                System.out.println(nullString.length());
+            } catch (Exception ex) {
+                System.out.println("Caught: " + ex.getMessage());
+            }
+        }
+    }
+}
